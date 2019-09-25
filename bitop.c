@@ -1,11 +1,12 @@
 #include<stdio.h>
 #include<stdlib.h>
 
-#define SET(number, n) number |= 1UL << n
-#define CLEAR(number, n) number &= ~(1UL << n)
-#define TOGGLE(number, n) number ^= 1UL << n
-#define CHECK(number, n) (number >> n) & 1UL
-#define CHANGE(number, x, n) number ^= (-x ^ number) & (1UL << n);
+#define SET(number, n) (number) |= 1UL << (n)
+#define CLEAR(number, n) (number) &= ~(1UL << (n))
+#define TOGGLE(number, n) (number) ^= 1UL << (n)
+#define CHECK(number, n) ((number) >> (n)) & 1UL
+#define CHANGE(number, x, n) (number) ^= (-(x) ^ (number)) & (1UL << n)
+#define COUNT_NUM_BIT_IS_ONE(number) ((number)^(number-1))
 
 int main(void)
 {
@@ -31,6 +32,9 @@ int main(void)
 
     CHANGE(num, 1, 4);              // 0...00010001;
     printf("%d\n", num);            // 17;
+    
+    int test = 0x01001101;
+    printf("%d\n", COUNT_NUM_BIT_IS_ONE(test));
 
     return 0;
 }
