@@ -5,6 +5,7 @@ Includes some useful tips when it comes to bit operation in C
 * Toggling a bit
 * Checking a bit
 * Change Nth bit to x
+* Count how many bits are 1 for x
 
 # 
 * Reciprocal Multiplication
